@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Extreme Demons</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="assets/css/smoothproducts.css">
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/img/favi/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/favi//apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/favi//apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favi//apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/favi//apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favi//apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/favi//apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favi//apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favi//apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="assets/img/favi//android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favi//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favi//favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favi//favicon-16x16.png">
+    <link rel="manifest" href="assets/img/favi//manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/img/favi//ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <style>
+    .iframeVideo {
+        height: 0px;
+        padding-top: 25px;
+        padding-bottom: 56.2%;
+        position: relative;
+    }
+    .iframeVideo iframe {
+	    width: 100%;
+	    height: 100%;
+	    position: absolute;
+    }
+    </style>
+    
+</head>
+
+<body><nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar shadow-lg">
+    <div class="container"><a class="navbar-brand logo" href="#">Elio</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse"
+            id="navcol-1">
+            <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="programmi.html">Programmi</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="tabella.html">Extreme Demons</a></li>
+                    <li class="nav-item dropdown" role="presentation"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Altro</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="index.html#contatti">Contatti</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="thumbnails.html">Thumbnails</a>
+                        </div>
+                    </li>
+                </ul>
+        </div>
+    </div>
+</nav>
+    <main class="page landing-page"><section class="clean-block features" style="font-family:Nunito Sans;background-color: #ddf2fd;">
+    <div class="container">
+        <div class="block-heading">
+            <h1 style="color:navy;text-align:left">Extreme Demons</h1>        
+        </div>
+        <p style="font-size: 21px"> I miei extreme demons completati in ordine di difficoltà nel gioco Geometry Dash
+        </p>
+        <script type="text/javascript">
+
+            var testo;
+            var file = "livelli.json";
+                var contenuto = new XMLHttpRequest();
+                contenuto.open("GET", file, false);
+                contenuto.onreadystatechange = function () {
+                    if (contenuto.readyState === 4) {
+                        if (contenuto.status === 200 || contenuto.status == 0) {
+    
+                            testo = contenuto.responseText;
+                            
+                        }
+                    }
+                }
+                contenuto.send(null);
+    
+                var informazioni;
+                var info = "info.txt";
+    
+                var rawFile = new XMLHttpRequest();
+                rawFile.open("GET", info, false);
+                rawFile.onreadystatechange = function ()
+                {
+                    if(rawFile.readyState === 4)
+                    {
+                        if(rawFile.status === 200 || rawFile.status == 0)
+                        {
+                            informazioni = rawFile.responseText;
+                           
+                        }
+                    }
+                }
+                rawFile.send(null);
+                var record = JSON.parse(testo);
+                
+                for(var i=0;i< informazioni;i++)
+                {
+                    document.write('<h2> <b>#' + record.records[i].position+' - '+ record.records[i].level +'</b></h2>');
+                    document.write("<br>");
+                    document.write('<div class="iframeVideo">');
+                    document.write('<iframe  src="'+ record.records[i].link+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+                    document.write("</div>");
+                    if(i< informazioni-1)
+                    document.write('<br> <br> <br>');
+    
+                }
+                
+            </script>
+        
+    
+        
+    </div>
+</section></main><footer class="page-footer" style="background-color: #ddf2fd">
+    <div style="background-color: white; text-align: center">
+        <hr>
+        <p>© 2019 - Elio Gargiulo - Tutti i diritti riservati</p>
+    </div>
+</footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="assets/js/smoothproducts.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>

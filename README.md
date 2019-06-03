@@ -1,1 +1,1 @@
-Test for a future Website
+Test for a future Website, Bootstrap classes used.
